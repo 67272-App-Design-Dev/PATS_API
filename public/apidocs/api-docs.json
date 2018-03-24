@@ -3,7 +3,10 @@
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
   "apis": [
-
+    {
+      "path": "/apidocs/owners.{format}",
+      "description": "Owner Management"
+    }
   ],
   "authorizations": null,
   "info": {

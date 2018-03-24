@@ -18,12 +18,6 @@ class OwnersController < ApplicationController
     notes "This lists details of one owner in PATS"
     response :not_found
   end
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "phone"
-    t.string "email"
 
   swagger_api :create do
     summary "Creates a new Owner"
