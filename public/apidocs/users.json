@@ -60,7 +60,7 @@
               "paramType": "form",
               "name": "role",
               "type": "string",
-              "description": "Role",
+              "description": "Role [vet|assistant|owner]",
               "required": true
             },
             {
@@ -135,7 +135,7 @@
               "paramType": "form",
               "name": "role",
               "type": "string",
-              "description": "Role",
+              "description": "Role [vet|assistant|owner]",
               "required": false
             },
             {

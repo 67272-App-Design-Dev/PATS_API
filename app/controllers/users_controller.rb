@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     param :form, :username, :string, :required, "Username"
     param :form, :password, :string, :required, "Password"
     param :form, :password_confirmation, :string, :required, "Password Confirmation"
-    param :form, :role, :string, :required, "Role"
+    param :form, :role, :string, :required, "Role [vet|assistant|owner]"
     param :form, :active, :boolean, :optional, "Active"
     response :not_acceptable
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     param :form, :username, :string, :optional, "Username"
     param :form, :password, :string, :optional, "Password"
     param :form, :password_confirmation, :string, :optional, "Password Confirmation"
-    param :form, :role, :string, :optional, "Role"
+    param :form, :role, :string, :optional, "Role [vet|assistant|owner]"
     param :form, :active, :boolean, :optional, "Active"
     response :not_found
     response :not_acceptable
