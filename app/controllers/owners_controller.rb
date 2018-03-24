@@ -1,4 +1,75 @@
 class OwnersController < ApplicationController
+  # Start with swagger docs info
+  swagger_controller :owners, "Owner Management"
+
+  swagger_api :index do
+    summary "Fetches all Owner objects"
+    notes "This lists all the owners in PATS system"
+  end
+
+  swagger_api :index do
+    summary "Fetches all Owner objects"
+    notes "This lists all the owners in PATS system"
+  end
+
+  swagger_api :show do
+    summary "Shows one Owner object"
+    param :path, :id, :integer, :required, "Owner ID"
+    notes "This lists details of one owner in PATS"
+    response :not_found
+  end
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "phone"
+    t.string "email"
+
+  swagger_api :create do
+    summary "Creates a new Owner"
+    param :form, :first_name, :string, :required, "First name"
+    param :form, :last_name, :string, :required, "Last name"
+    param :form, :street, :string, :optional, "Street"
+    param :form, :city, :string, :optional, "City"
+    param :form, :state, :string, :optional, "State"
+    param :form, :zip, :string, :optional, "Zip Code"
+    param :form, :phone, :string, :optional, "Phone"
+    param :form, :email, :string, :optional, "Email"
+    param :form, :active, :boolean, :optional, "Active"
+    param :form, :username, :string, :required, "Username"
+    param :form, :password, :string, :required, "Password"
+    param :form, :password_confirmation, :string, :required, "Password Confirmation"
+    response :not_acceptable
+  end
+
+  swagger_api :update do
+    summary "Updates an existing Owner"
+    param :path, :id, :integer, :required, "Owner ID"
+    param :form, :first_name, :string, :optional, "First name"
+    param :form, :last_name, :string, :optional, "Last name"
+    param :form, :street, :string, :optional, "Street"
+    param :form, :city, :string, :optional, "City"
+    param :form, :state, :string, :optional, "State"
+    param :form, :zip, :string, :optional, "Zip Code"
+    param :form, :phone, :string, :optional, "Phone"
+    param :form, :email, :string, :optional, "Email"
+    param :form, :active, :boolean, :optional, "Active"
+    param :form, :username, :string, :optional, "Username"
+    param :form, :password, :string, :optional, "Password"
+    param :form, :password_confirmation, :string, :optional, "Password Confirmation"
+    response :not_found
+    response :not_acceptable
+  end
+
+  swagger_api :destroy do
+    summary "Deletes an existing Owner"
+    param :path, :id, :integer, :required, "Owner ID"
+    response :not_found
+    response :not_acceptable
+  end
+
+  # ----------------------
+  # Actual controller code
   before_action :set_owner, only: [:show, :update, :destroy]
 
   def index
