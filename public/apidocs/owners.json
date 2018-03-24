@@ -8,14 +8,8 @@
       "path": "/owners.json",
       "operations": [
         {
-          "summary": [
-            "Fetches all Owner objects",
-            "Fetches all Owner objects"
-          ],
-          "notes": [
-            "This lists all the owners in PATS system",
-            "This lists all the owners in PATS system"
-          ],
+          "summary": "Fetches all Owner objects",
+          "notes": "This lists all the owners in PATS system",
           "nickname": "Owners#index",
           "method": "get"
         }

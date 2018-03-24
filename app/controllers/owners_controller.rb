@@ -7,11 +7,6 @@ class OwnersController < ApplicationController
     notes "This lists all the owners in PATS system"
   end
 
-  swagger_api :index do
-    summary "Fetches all Owner objects"
-    notes "This lists all the owners in PATS system"
-  end
-
   swagger_api :show do
     summary "Shows one Owner object"
     param :path, :id, :integer, :required, "Owner ID"

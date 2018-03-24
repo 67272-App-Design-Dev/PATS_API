@@ -1,4 +1,54 @@
 class MedicinesController < ApplicationController
+    # Start with swagger docs info
+  swagger_controller :medicines, "Medicine Management"
+
+  swagger_api :index do
+    summary "Fetches all Medicine objects"
+    notes "This lists all the medicines in PATS system"
+  end
+
+  swagger_api :show do
+    summary "Shows one Medicine object"
+    param :path, :id, :integer, :required, "Medicine ID"
+    notes "This lists details of one medicine in PATS"
+    response :not_found
+  end
+
+  swagger_api :create do
+    summary "Creates a new Medicine"
+    param :form, :name, :string, :required, "Name"
+    param :form, :description, :text, :optional, "Description"
+    param :form, :stock_amount, :integer, :required, "Stock Amount"
+    param :form, :admin_method, :string, :optional, "Admin Method"
+    param :form, :unit, :string, :optional, "Unit"
+    param :form, :vaccine, :boolean, :optional, "Vaccine"
+    param :form, :active, :boolean, :optional, "Active"
+    response :not_acceptable
+  end
+
+  swagger_api :update do
+    summary "Updates an existing Medicine"
+    param :path, :id, :integer, :required, "Medicine ID"
+    param :form, :name, :string, :optional, "Name"
+    param :form, :description, :text, :optional, "Description"
+    param :form, :stock_amount, :integer, :optional, "Stock Amount"
+    param :form, :admin_method, :string, :optional, "Admin Method"
+    param :form, :unit, :string, :optional, "Unit"
+    param :form, :vaccine, :boolean, :optional, "Vaccine"
+    param :form, :active, :boolean, :optional, "Active"
+    response :not_found
+    response :not_acceptable
+  end
+
+  swagger_api :destroy do
+    summary "Deletes an existing Medicine"
+    param :path, :id, :integer, :required, "Medicine ID"
+    response :not_found
+    response :not_acceptable
+  end
+
+  # ----------------------
+  # Actual controller code
   before_action :set_medicine, only: [:show, :update, :destroy]
 
   def index
