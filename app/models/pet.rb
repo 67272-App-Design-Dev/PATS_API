@@ -54,7 +54,9 @@ class Pet < ApplicationRecord
   validate :animal_type_treated_by_PATS
   # Third, make sure the owner_id is in the PATS system 
   validate :owner_is_active_in_PATS_system
-  
+
+  # Delegates
+  delegate :name, to: :animal, prefix: true  
 
   # Misc Methods and Constants
   # -----------------------------
