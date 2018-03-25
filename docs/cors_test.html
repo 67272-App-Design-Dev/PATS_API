@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>CORS Test</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $.ajax({
+      method: "GET",
+      url: "http://localhost:3000/owners",
+      success: function(res) {
+        alert("Success");
+        console.log(res);
+      },
+      error: function(res) {
+        alert("Error");
+        console.log(res);
+      }
+    })
+  </script>
+</head>
+<body>
+  <h1>CORS Test</h1>
+</body>
+</html>
