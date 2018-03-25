@@ -5,6 +5,8 @@ class PetsController < ApplicationController
   swagger_api :index do
     summary "Fetches all Pet objects"
     notes "This lists all the pets in PATS system"
+    param :query, :active, :boolean, :optional, "Filter on whether or not the pet is active"
+    param :query, :alphabetical, :boolean, :optional, "Order pets alphabetically by name"
   end
 
   swagger_api :show do
@@ -51,8 +53,14 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :update, :destroy]
 
   def index
-    @active_pets = Pet.active.alphabetical.all
-    render json: @active_pets
+    @pets = Pet.all
+    if(params[:active].present?)
+      @pets = params[:active] == "true" ? @pets.active : @pets.inactive
+    end
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @pets = @pets.alphabetical
+    end
+    render json: @pets
   end
 
   def show

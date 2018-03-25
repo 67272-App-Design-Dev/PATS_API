@@ -5,6 +5,7 @@ class AnimalsController < ApplicationController
   swagger_api :index do
     summary "Fetches all Animal objects"
     notes "This lists all the animals in PATS system"
+    param :query, :alphabetical, :boolean, :optional, "Order animals alphabetically by name"
   end
 
   swagger_api :show do
@@ -43,7 +44,10 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :update, :destroy]
 
   def index
-    @animals = Animal.alphabetical.all
+    @animals = Animal.all
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @animals = @animals.alphabetical
+    end
     render json: @animals
   end
 

@@ -5,6 +5,8 @@ class OwnersController < ApplicationController
   swagger_api :index do
     summary "Fetches all Owner objects"
     notes "This lists all the owners in PATS system"
+    param :query, :active, :boolean, :optional, "Filter on whether or not the owner is active"
+    param :query, :alphabetical, :boolean, :optional, "Order owners alphabetically by last name, first name"
   end
 
   swagger_api :show do
@@ -62,8 +64,14 @@ class OwnersController < ApplicationController
   before_action :set_owner, only: [:show, :update, :destroy]
 
   def index
-    @active_owners = Owner.active.alphabetical.all
-    render json: @active_owners
+    @owners = Owner.all
+    if(params[:active].present?)
+      @owners = params[:active] == "true" ? @owners.active : @owners.inactive
+    end
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @owners = @owners.alphabetical
+    end
+    render json: @owners
   end
 
   def show

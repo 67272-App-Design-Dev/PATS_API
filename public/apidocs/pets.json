@@ -10,6 +10,22 @@
         {
           "summary": "Fetches all Pet objects",
           "notes": "This lists all the pets in PATS system",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "active",
+              "type": "boolean",
+              "description": "Filter on whether or not the pet is active",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "alphabetical",
+              "type": "boolean",
+              "description": "Order pets alphabetically by name",
+              "required": false
+            }
+          ],
           "nickname": "Pets#index",
           "method": "get"
         }

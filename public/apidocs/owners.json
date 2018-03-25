@@ -10,6 +10,22 @@
         {
           "summary": "Fetches all Owner objects",
           "notes": "This lists all the owners in PATS system",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "active",
+              "type": "boolean",
+              "description": "Filter on whether or not the owner is active",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "alphabetical",
+              "type": "boolean",
+              "description": "Order owners alphabetically by last name, first name",
+              "required": false
+            }
+          ],
           "nickname": "Owners#index",
           "method": "get"
         }

@@ -5,6 +5,8 @@ class MedicinesController < ApplicationController
   swagger_api :index do
     summary "Fetches all Medicine objects"
     notes "This lists all the medicines in PATS system"
+    param :query, :active, :boolean, :optional, "Filter on whether or not the medicine is active"
+    param :query, :alphabetical, :boolean, :optional, "Order medicines alphabetically by name"
   end
 
   swagger_api :show do
@@ -52,7 +54,13 @@ class MedicinesController < ApplicationController
   before_action :set_medicine, only: [:show, :update, :destroy]
 
   def index
-    @medicines = Medicine.alphabetical.all
+    @medicines = Medicine.all
+    if(params[:active].present?)
+      @medicines = params[:active] == "true" ? @medicines.active : @medicines.inactive
+    end
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @medicines = @medicines.alphabetical
+    end
     render json: @medicines
   end
   

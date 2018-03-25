@@ -10,6 +10,22 @@
         {
           "summary": "Fetches all Procedure objects",
           "notes": "This lists all the procedures in PATS system",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "active",
+              "type": "boolean",
+              "description": "Filter on whether or not the procedure is active",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "alphabetical",
+              "type": "boolean",
+              "description": "Order procedures alphabetically by name",
+              "required": false
+            }
+          ],
           "nickname": "Procedures#index",
           "method": "get"
         }

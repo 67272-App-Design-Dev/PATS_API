@@ -5,6 +5,8 @@ class ProceduresController < ApplicationController
   swagger_api :index do
     summary "Fetches all Procedure objects"
     notes "This lists all the procedures in PATS system"
+    param :query, :active, :boolean, :optional, "Filter on whether or not the procedure is active"
+    param :query, :alphabetical, :boolean, :optional, "Order procedures alphabetically by name"
   end
 
   swagger_api :show do
@@ -46,7 +48,13 @@ class ProceduresController < ApplicationController
   before_action :set_procedure, only: [:show, :edit, :update, :destroy]
 
   def index
-    @procedures = Procedure.alphabetical.all
+    @procedures = Procedure.all
+    if(params[:active].present?)
+      @procedures = params[:active] == "true" ? @procedures.active : @procedures.inactive
+    end
+    if params[:alphabetical].present? && params[:alphabetical] == "true"
+      @procedures = @procedures.alphabetical
+    end
     render json: @procedures
   end
   

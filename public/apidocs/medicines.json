@@ -10,6 +10,22 @@
         {
           "summary": "Fetches all Medicine objects",
           "notes": "This lists all the medicines in PATS system",
+          "parameters": [
+            {
+              "paramType": "query",
+              "name": "active",
+              "type": "boolean",
+              "description": "Filter on whether or not the medicine is active",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "alphabetical",
+              "type": "boolean",
+              "description": "Order medicines alphabetically by name",
+              "required": false
+            }
+          ],
           "nickname": "Medicines#index",
           "method": "get"
         }

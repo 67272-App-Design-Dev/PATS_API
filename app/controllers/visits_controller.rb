@@ -5,6 +5,7 @@ class VisitsController < ApplicationController
   swagger_api :index do
     summary "Fetches all Visit objects"
     notes "This lists all the visits in PATS system"
+    param :query, :chronological, :boolean, :optional, "Order visits chronologically by visit date"
   end
 
   swagger_api :show do
@@ -44,7 +45,10 @@ class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :update, :destroy]
 
   def index
-    @visits = Visit.chronological.paginate(page: params[:page]).per_page(10)
+    @visits = Visit.all
+    if params[:chronological].present? && params[:chronological] == "true"
+      @visits = @visits.chronological
+    end
     render json: @visits
   end
   
