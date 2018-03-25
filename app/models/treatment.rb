@@ -16,6 +16,9 @@ class Treatment < ApplicationRecord
   before_create :update_total_cost_of_visit
   before_destroy :refund_amount_in_cost_of_visit
 
+  # Delegates
+  delegate :name, to: :procedure, prefix: true
+
   private
   def update_total_cost_of_visit
     visit = self.visit

@@ -22,6 +22,9 @@ class Dosage < ApplicationRecord
   before_create :update_total_cost_of_visit
   before_destroy :refund_amount_in_cost_of_visit
 
+  # Delegates
+  delegate :name, to: :medicine, prefix: true
+
   # Use private methods to execute the custom validations
   # -----------------------------
   private
