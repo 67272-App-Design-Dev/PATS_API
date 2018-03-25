@@ -6,6 +6,10 @@ class PetsController < ApplicationController
     summary "Fetches all Pet objects"
     notes "This lists all the pets in PATS system"
     param :query, :active, :boolean, :optional, "Filter on whether or not the pet is active"
+    param :query, :females, :boolean, :optional, "Filter on whether or not the pet is female"
+    param :query, :for_owner, :integer, :optional, "Filter pets for a given owner id"
+    param :query, :by_animal, :integer, :optional, "Filter pets for a given animal id"
+    param :query, :born_before, :string, :optional, "Filter pets to find those born before a given date"
     param :query, :alphabetical, :boolean, :optional, "Order pets alphabetically by name"
   end
 
@@ -52,14 +56,18 @@ class PetsController < ApplicationController
 
   before_action :set_pet, only: [:show, :update, :destroy]
 
+  include Filterable
+  include Orderable
+  
+  BOOLEAN_FILTERING_PARAMS = [[:active, :inactive], [:females, :males]]
+  PARAM_FILTERING_PARAMS = [:for_owner, :by_animal, :born_before]
+  ORDERING_PARAMS = [:alphabetical]
+
+
   def index
-    @pets = Pet.all
-    if(params[:active].present?)
-      @pets = params[:active] == "true" ? @pets.active : @pets.inactive
-    end
-    if params[:alphabetical].present? && params[:alphabetical] == "true"
-      @pets = @pets.alphabetical
-    end
+    @pets = boolean_filter(Pet.all, BOOLEAN_FILTERING_PARAMS)
+    @pets = param_filter(@pets, PARAM_FILTERING_PARAMS)
+    @pets = order(@pets, ORDERING_PARAMS)
     render json: @pets
   end
 
