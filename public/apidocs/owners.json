@@ -8,9 +8,14 @@
       "path": "/owners.json",
       "operations": [
         {
-          "summary": "Fetches all Owner objects",
-          "notes": "This lists all the owners in PATS system",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "query",
               "name": "active",
@@ -26,6 +31,8 @@
               "required": false
             }
           ],
+          "summary": "Fetches all Owner objects",
+          "notes": "This lists all the owners in PATS system",
           "nickname": "Owners#index",
           "method": "get"
         }
@@ -35,8 +42,14 @@
       "path": "/owners.json",
       "operations": [
         {
-          "summary": "Creates a new Owner",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "first_name",
@@ -122,6 +135,7 @@
               "required": true
             }
           ],
+          "summary": "Creates a new Owner",
           "responseMessages": [
             {
               "code": 406,
@@ -138,9 +152,14 @@
       "path": "/owners/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Owner object",
-          "notes": "This lists details of one owner in PATS",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -149,6 +168,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Owner object",
+          "notes": "This lists details of one owner in PATS",
           "responseMessages": [
             {
               "code": 404,
@@ -165,8 +186,14 @@
       "path": "/owners/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Owner",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -259,6 +286,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Owner",
           "responseMessages": [
             {
               "code": 404,
@@ -280,7 +308,6 @@
       "path": "/owners/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Owner",
           "parameters": [
             {
               "paramType": "path",
@@ -290,6 +317,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Owner",
           "responseMessages": [
             {
               "code": 404,

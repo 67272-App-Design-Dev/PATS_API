@@ -8,14 +8,47 @@
       "path": "/pets.json",
       "operations": [
         {
-          "summary": "Fetches all Pet objects",
-          "notes": "This lists all the pets in PATS system",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "query",
               "name": "active",
               "type": "boolean",
               "description": "Filter on whether or not the pet is active",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "females",
+              "type": "boolean",
+              "description": "Filter on whether or not the pet is female",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "for_owner",
+              "type": "integer",
+              "description": "Filter pets for a given owner id",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "by_animal",
+              "type": "integer",
+              "description": "Filter pets for a given animal id",
+              "required": false
+            },
+            {
+              "paramType": "query",
+              "name": "born_before",
+              "type": "string",
+              "description": "Filter pets to find those born before a given date",
               "required": false
             },
             {
@@ -26,6 +59,8 @@
               "required": false
             }
           ],
+          "summary": "Fetches all Pet objects",
+          "notes": "This lists all the pets in PATS system",
           "nickname": "Pets#index",
           "method": "get"
         }
@@ -35,8 +70,14 @@
       "path": "/pets.json",
       "operations": [
         {
-          "summary": "Creates a new Pet",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "name",
@@ -80,6 +121,7 @@
               "required": false
             }
           ],
+          "summary": "Creates a new Pet",
           "responseMessages": [
             {
               "code": 406,
@@ -96,9 +138,14 @@
       "path": "/pets/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Pet object",
-          "notes": "This lists details of one pet in PATS",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -107,6 +154,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Pet object",
+          "notes": "This lists details of one pet in PATS",
           "responseMessages": [
             {
               "code": 404,
@@ -123,8 +172,14 @@
       "path": "/pets/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Pet",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -175,6 +230,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Pet",
           "responseMessages": [
             {
               "code": 404,
@@ -196,7 +252,6 @@
       "path": "/pets/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Pet",
           "parameters": [
             {
               "paramType": "path",
@@ -206,6 +261,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Pet",
           "responseMessages": [
             {
               "code": 404,

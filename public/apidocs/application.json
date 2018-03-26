@@ -1,0 +1,28 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "application",
+  "apis": [
+    {
+      "path": "/token.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Username and password in the format of: Basic {Base64.encode64('username:password')}",
+              "required": true
+            }
+          ],
+          "summary": "Authenticate with username and password to get token",
+          "nickname": "Application#token",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

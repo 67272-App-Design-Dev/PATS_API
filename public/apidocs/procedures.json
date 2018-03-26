@@ -8,9 +8,14 @@
       "path": "/procedures.json",
       "operations": [
         {
-          "summary": "Fetches all Procedure objects",
-          "notes": "This lists all the procedures in PATS system",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "query",
               "name": "active",
@@ -26,6 +31,8 @@
               "required": false
             }
           ],
+          "summary": "Fetches all Procedure objects",
+          "notes": "This lists all the procedures in PATS system",
           "nickname": "Procedures#index",
           "method": "get"
         }
@@ -35,8 +42,14 @@
       "path": "/procedures.json",
       "operations": [
         {
-          "summary": "Creates a new Procedure",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "name",
@@ -66,6 +79,7 @@
               "required": false
             }
           ],
+          "summary": "Creates a new Procedure",
           "responseMessages": [
             {
               "code": 406,
@@ -82,9 +96,14 @@
       "path": "/procedures/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Procedure object",
-          "notes": "This lists details of one procedure in PATS",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -93,6 +112,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Procedure object",
+          "notes": "This lists details of one procedure in PATS",
           "responseMessages": [
             {
               "code": 404,
@@ -109,8 +130,14 @@
       "path": "/procedures/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Procedure",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -147,6 +174,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Procedure",
           "responseMessages": [
             {
               "code": 404,
@@ -168,7 +196,6 @@
       "path": "/procedures/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Procedure",
           "parameters": [
             {
               "paramType": "path",
@@ -178,6 +205,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Procedure",
           "responseMessages": [
             {
               "code": 404,

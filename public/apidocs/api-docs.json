@@ -38,6 +38,10 @@
     {
       "path": "/apidocs/users.{format}",
       "description": "User Management"
+    },
+    {
+      "path": "/apidocs/application.{format}",
+      "description": "Application Management"
     }
   ],
   "authorizations": null,

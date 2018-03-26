@@ -8,9 +8,14 @@
       "path": "/medicines.json",
       "operations": [
         {
-          "summary": "Fetches all Medicine objects",
-          "notes": "This lists all the medicines in PATS system",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "query",
               "name": "active",
@@ -26,6 +31,8 @@
               "required": false
             }
           ],
+          "summary": "Fetches all Medicine objects",
+          "notes": "This lists all the medicines in PATS system",
           "nickname": "Medicines#index",
           "method": "get"
         }
@@ -35,8 +42,14 @@
       "path": "/medicines.json",
       "operations": [
         {
-          "summary": "Creates a new Medicine",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "name",
@@ -87,6 +100,7 @@
               "required": false
             }
           ],
+          "summary": "Creates a new Medicine",
           "responseMessages": [
             {
               "code": 406,
@@ -103,9 +117,14 @@
       "path": "/medicines/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Medicine object",
-          "notes": "This lists details of one medicine in PATS",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -114,6 +133,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Medicine object",
+          "notes": "This lists details of one medicine in PATS",
           "responseMessages": [
             {
               "code": 404,
@@ -130,8 +151,14 @@
       "path": "/medicines/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Medicine",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -189,6 +216,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Medicine",
           "responseMessages": [
             {
               "code": 404,
@@ -210,7 +238,6 @@
       "path": "/medicines/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Medicine",
           "parameters": [
             {
               "paramType": "path",
@@ -220,6 +247,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Medicine",
           "responseMessages": [
             {
               "code": 404,

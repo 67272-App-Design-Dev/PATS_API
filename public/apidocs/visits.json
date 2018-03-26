@@ -8,9 +8,14 @@
       "path": "/visits.json",
       "operations": [
         {
-          "summary": "Fetches all Visit objects",
-          "notes": "This lists all the visits in PATS system",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "query",
               "name": "chronological",
@@ -19,6 +24,8 @@
               "required": false
             }
           ],
+          "summary": "Fetches all Visit objects",
+          "notes": "This lists all the visits in PATS system",
           "nickname": "Visits#index",
           "method": "get"
         }
@@ -28,8 +35,14 @@
       "path": "/visits.json",
       "operations": [
         {
-          "summary": "Creates a new Visit",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "pet_id",
@@ -52,6 +65,7 @@
               "required": true
             }
           ],
+          "summary": "Creates a new Visit",
           "responseMessages": [
             {
               "code": 406,
@@ -68,9 +82,14 @@
       "path": "/visits/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Visit object",
-          "notes": "This lists details of one visit in PATS",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -79,6 +98,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Visit object",
+          "notes": "This lists details of one visit in PATS",
           "responseMessages": [
             {
               "code": 404,
@@ -95,8 +116,14 @@
       "path": "/visits/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Visit",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -126,6 +153,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Visit",
           "responseMessages": [
             {
               "code": 404,
@@ -147,7 +175,6 @@
       "path": "/visits/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Visit",
           "parameters": [
             {
               "paramType": "path",
@@ -157,6 +184,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Visit",
           "responseMessages": [
             {
               "code": 404,

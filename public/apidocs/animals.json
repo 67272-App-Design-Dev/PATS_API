@@ -8,9 +8,14 @@
       "path": "/animals.json",
       "operations": [
         {
-          "summary": "Fetches all Animal objects",
-          "notes": "This lists all the animals in PATS system",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "query",
               "name": "alphabetical",
@@ -19,6 +24,8 @@
               "required": false
             }
           ],
+          "summary": "Fetches all Animal objects",
+          "notes": "This lists all the animals in PATS system",
           "nickname": "Animals#index",
           "method": "get"
         }
@@ -28,8 +35,14 @@
       "path": "/animals.json",
       "operations": [
         {
-          "summary": "Creates a new Animal",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "name",
@@ -45,6 +58,7 @@
               "required": false
             }
           ],
+          "summary": "Creates a new Animal",
           "responseMessages": [
             {
               "code": 406,
@@ -61,9 +75,14 @@
       "path": "/animals/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Animal object",
-          "notes": "This lists details of one animal in PATS",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -72,6 +91,8 @@
               "required": true
             }
           ],
+          "summary": "Shows one Animal object",
+          "notes": "This lists details of one animal in PATS",
           "responseMessages": [
             {
               "code": 404,
@@ -88,8 +109,14 @@
       "path": "/animals/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Animal",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -112,6 +139,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing Animal",
           "responseMessages": [
             {
               "code": 404,
@@ -133,7 +161,6 @@
       "path": "/animals/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Animal",
           "parameters": [
             {
               "paramType": "path",
@@ -143,6 +170,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Animal",
           "responseMessages": [
             {
               "code": 404,

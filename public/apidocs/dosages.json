@@ -8,8 +8,32 @@
       "path": "/dosages.json",
       "operations": [
         {
-          "summary": "Creates a new Dosage",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Dosages#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/dosages.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "visit_id",
@@ -39,6 +63,7 @@
               "required": true
             }
           ],
+          "summary": "Creates a new Dosage",
           "responseMessages": [
             {
               "code": 406,
@@ -55,7 +80,42 @@
       "path": "/dosages/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Dosage",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Dosages#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/dosages/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Dosages#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/dosages/{id}.json",
+      "operations": [
+        {
           "parameters": [
             {
               "paramType": "path",
@@ -65,6 +125,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Dosage",
           "responseMessages": [
             {
               "code": 404,

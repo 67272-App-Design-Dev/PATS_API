@@ -8,8 +8,32 @@
       "path": "/treatments.json",
       "operations": [
         {
-          "summary": "Creates a new Treatment",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Treatments#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/treatments.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "visit_id",
@@ -39,6 +63,7 @@
               "required": false
             }
           ],
+          "summary": "Creates a new Treatment",
           "responseMessages": [
             {
               "code": 406,
@@ -55,7 +80,42 @@
       "path": "/treatments/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Treatment",
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Treatments#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/treatments/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Treatments#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/treatments/{id}.json",
+      "operations": [
+        {
           "parameters": [
             {
               "paramType": "path",
@@ -65,6 +125,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing Treatment",
           "responseMessages": [
             {
               "code": 404,

@@ -8,6 +8,15 @@
       "path": "/users.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
           "summary": "Fetches all User objects",
           "notes": "This lists all the users in PATS system",
           "nickname": "Users#index",
@@ -19,8 +28,14 @@
       "path": "/users.json",
       "operations": [
         {
-          "summary": "Creates a new User",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "first_name",
@@ -71,6 +86,7 @@
               "required": false
             }
           ],
+          "summary": "Creates a new User",
           "responseMessages": [
             {
               "code": 406,
@@ -87,8 +103,32 @@
       "path": "/users/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing User",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Users#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/users/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",
@@ -146,6 +186,7 @@
               "required": false
             }
           ],
+          "summary": "Updates an existing User",
           "responseMessages": [
             {
               "code": 404,
@@ -167,7 +208,6 @@
       "path": "/users/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing User",
           "parameters": [
             {
               "paramType": "path",
@@ -177,6 +217,7 @@
               "required": true
             }
           ],
+          "summary": "Deletes an existing User",
           "responseMessages": [
             {
               "code": 404,
