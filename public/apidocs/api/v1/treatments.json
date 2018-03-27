@@ -1,0 +1,148 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "treatments",
+  "apis": [
+    {
+      "path": "/v1/treatments.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Treatments#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/treatments.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "visit_id",
+              "type": "integer",
+              "description": "Visit ID",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "procedure_id",
+              "type": "integer",
+              "description": "Procedure ID",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "discount",
+              "type": "float",
+              "description": "Discount",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "successful",
+              "type": "boolean",
+              "description": "Successful",
+              "required": false
+            }
+          ],
+          "summary": "Creates a new Treatment",
+          "responseMessages": [
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Api::V1::Treatments#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/v1/treatments/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Treatments#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/treatments/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token in the format of: Token token={token}",
+              "required": true
+            }
+          ],
+          "nickname": "Api::V1::Treatments#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/v1/treatments/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Treatment ID",
+              "required": true
+            }
+          ],
+          "summary": "Deletes an existing Treatment",
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Api::V1::Treatments#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

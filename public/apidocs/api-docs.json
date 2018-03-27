@@ -4,43 +4,43 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/apidocs/owners.{format}",
+      "path": "/apidocs/api/v1/owners.{format}",
       "description": "Owner Management"
     },
     {
-      "path": "/apidocs/animals.{format}",
+      "path": "/apidocs/api/v1/animals.{format}",
       "description": "Animal Management"
     },
     {
-      "path": "/apidocs/pets.{format}",
+      "path": "/apidocs/api/v1/pets.{format}",
       "description": "Pet Management"
     },
     {
-      "path": "/apidocs/visits.{format}",
+      "path": "/apidocs/api/v1/visits.{format}",
       "description": "Visit Management"
     },
     {
-      "path": "/apidocs/dosages.{format}",
+      "path": "/apidocs/api/v1/dosages.{format}",
       "description": "Dosage Management"
     },
     {
-      "path": "/apidocs/treatments.{format}",
+      "path": "/apidocs/api/v1/treatments.{format}",
       "description": "Treatment Management"
     },
     {
-      "path": "/apidocs/medicines.{format}",
+      "path": "/apidocs/api/v1/medicines.{format}",
       "description": "Medicine Management"
     },
     {
-      "path": "/apidocs/procedures.{format}",
+      "path": "/apidocs/api/v1/procedures.{format}",
       "description": "Procedure Management"
     },
     {
-      "path": "/apidocs/users.{format}",
+      "path": "/apidocs/api/v1/users.{format}",
       "description": "User Management"
     },
     {
-      "path": "/apidocs/application.{format}",
+      "path": "/apidocs/api/v1/application.{format}",
       "description": "Application Management"
     }
   ],
