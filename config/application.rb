@@ -39,5 +39,8 @@ module PATSApi
         resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options]
       end
     end
+
+    # Use rack_attack middleware to stop excessive hammering on the API
+    config.middleware.use Rack::Attack
   end
 end

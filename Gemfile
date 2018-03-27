@@ -34,6 +34,9 @@ gem 'active_model_serializers', '0.10.7'
 # For generating the swagger docs to document the API
 gem 'swagger-docs', '0.2.9'
 
+# For throttling access to the API
+gem 'rack-attack', '5.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
