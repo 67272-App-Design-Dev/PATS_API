@@ -29,7 +29,8 @@ gem 'rack-cors', '1.0.2'
 gem 'validates_timeliness', '4.0.2'
 
 # For serializing models to json for the API
-gem 'active_model_serializers', '0.10.7'
+# gem 'active_model_serializers', '0.10.7'
+gem 'fast_jsonapi', '1.5'
 
 # For generating the swagger docs to document the API
 gem 'swagger-docs', '0.2.9'
