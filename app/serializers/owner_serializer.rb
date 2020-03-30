@@ -10,13 +10,13 @@ class OwnerSerializer
 
   attribute :active_pets do |object|
     object.pets.active.map do |pet|
-      PetSerializer.new(pet).serializable_hash
+      OwnerPetSerializer.new(pet).serializable_hash
     end
   end
 
   attribute :inactive_pets do |object|
     object.pets.inactive.map do |pet|
-      PetSerializer.new(pet).serializable_hash
+      OwnerPetSerializer.new(pet).serializable_hash
     end
   end
 

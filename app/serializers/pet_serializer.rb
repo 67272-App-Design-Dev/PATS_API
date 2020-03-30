@@ -14,9 +14,15 @@ class PetSerializer
     object.visits.chronological.first.weight
   end
 
-  # attribute :owner do |object|
-  #   OwnerSerializer.new(object.owner).serializable_hash
-  # end
+  attribute :owner do |object|
+    PetOwnerSerializer.new(object.owner).serializable_hash
+  end
+
+  attribute :visits do |object|
+    object.visits.chronological.map do |visit|
+      PetVisitSerializer.new(visit).serializable_hash
+    end
+  end
 
 
 end
