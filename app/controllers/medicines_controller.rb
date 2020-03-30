@@ -58,6 +58,7 @@ class MedicinesController < ApplicationController
   
   def show
     render json: @medicine
+    # render json: MedicineSerializer.new(@medicine).serializable_hash
   end
   
   def create
