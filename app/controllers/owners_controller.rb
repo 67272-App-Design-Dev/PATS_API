@@ -63,11 +63,11 @@ class OwnersController < ApplicationController
 
   def index
     @active_owners = Owner.active.alphabetical.all
-    render json: @active_owners
+    render json: OwnerSerializer.new(@active_owners).serialized_json
   end
 
   def show
-    render json: @owner
+    render json: OwnerSerializer.new(@owner).serialized_json
   end
 
   def create
