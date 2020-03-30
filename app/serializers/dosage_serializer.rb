@@ -1,3 +1,4 @@
-class DosageSerializer < ActiveModel::Serializer
-  attributes :id
+class DosageSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes 
 end

@@ -1,3 +1,4 @@
-class TreatmentSerializer < ActiveModel::Serializer
-  attributes :id
+class TreatmentSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes 
 end

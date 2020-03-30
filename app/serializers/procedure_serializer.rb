@@ -1,3 +1,4 @@
-class ProcedureSerializer < ActiveModel::Serializer
-  attributes :id
+class ProcedureSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes 
 end

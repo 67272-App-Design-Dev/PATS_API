@@ -1,3 +1,4 @@
-class MedicineSerializer < ActiveModel::Serializer
-  attributes :id
+class MedicineSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes 
 end
