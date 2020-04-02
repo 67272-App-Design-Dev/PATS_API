@@ -10,6 +10,10 @@ This is the code used in 67-272 to teach the basics of building an API.  There a
 
 * adv_serializers -- a more advanced version of the prior branch 
 
+* serializers-fastjson -- similar to the serializers branch, it uses Netflix's `fast_jsonapi` gem for significant performance improvements
+
+* adv_serial_fastjson -- likewise, a more advanced version of the prior branch using the `fast_jsonapi` gem
+
 * cors -- allowing for cross origin resource sharing
 
 * filtering -- this version adds flexibility to the API allowing us to filter and order results as needed
@@ -21,4 +25,5 @@ This is the code used in 67-272 to teach the basics of building an API.  There a
 * versioning -- creating versions of the API
 
 * rackattack -- throttling access to the API to stop excessive usage
+
 
