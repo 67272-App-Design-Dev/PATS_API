@@ -23,7 +23,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors', '1.0.2'
+gem 'rack-cors', '1.0.5'
 
 # For handling date validation
 gem 'validates_timeliness', '4.0.2'
